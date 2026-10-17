@@ -1,0 +1,13 @@
+---
+<update_variable_rules>
+rule:
+  - 在每轮回复最后用 JSON Patch（RFC 6902）更新确实变化的 MVU 状态；仅允许 add、replace、remove。
+  - 依据本轮剧情而非旧剧情推断变化；无变化时可以输出空数组。
+format: |-
+  <UpdateVariable>
+  <Analysis>用简短中文说明变化依据；数值说明旧值、变化量和新值。</Analysis>
+  <JSONPatch>
+  []
+  </JSONPatch>
+  </UpdateVariable>
+</update_variable_rules>

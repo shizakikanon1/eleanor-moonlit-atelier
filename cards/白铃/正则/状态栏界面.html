@@ -1,0 +1,32 @@
+```
+<style>
+:root{--ink:#49514f;--muted:#858b86;--petal:#e9aebd;--blue:#dcecf0;--paper:#fffdf9;--wood:#b58d70;--line:#f1e8df}
+*{box-sizing:border-box}body{margin:0;padding:10px;background:transparent;color:var(--ink);font:14px/1.55 system-ui,"Microsoft YaHei",sans-serif}
+.card{max-width:740px;margin:auto;border:1px solid #eadfd6;border-radius:18px;background:linear-gradient(135deg,rgba(255,253,249,.98),rgba(247,251,250,.97));box-shadow:0 8px 24px rgba(91,73,60,.10);overflow:hidden}
+.top{padding:14px 16px;background:linear-gradient(110deg,#fff7f3,#eaf4f5);border-bottom:1px solid var(--line)}.title{font-size:18px;font-weight:750;letter-spacing:.04em}.subtitle{font-size:12px;color:var(--muted);margin-top:2px}
+.meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}.pill{padding:4px 9px;border-radius:999px;background:#fff;border:1px solid #eee5df;color:#65706c;font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:12px}.panel{border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.8);padding:11px 12px;min-width:0}.panel h3{margin:0 0 7px;font-size:12px;color:#a56e7d;letter-spacing:.08em}.value{font-size:14px;overflow-wrap:anywhere}.meter{height:7px;margin-top:7px;border-radius:8px;background:#edf0ed;overflow:hidden}.meter i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,#b8dce2,#e7aebe)}
+.memories{grid-column:1/-1}.foot{padding:0 14px 12px;color:var(--muted);font-size:11px;text-align:right}
+@media(max-width:480px){body{padding:6px}.grid{gap:7px;padding:8px}.panel{padding:9px}.title{font-size:16px}}
+</style>
+<div class="card">
+  <div class="top">
+    <div class="title">🌸 花见咖啡馆 · 白铃的当日手记</div>
+    <div class="subtitle">一杯咖啡的时间，慢慢靠近春天</div>
+    <div class="meta">
+      <span class="pill">📅 {{format_message_variable::stat_data.当前处境.时间.日期}}</span>
+      <span class="pill">🕰️ {{format_message_variable::stat_data.当前处境.时间.时刻}}</span>
+      <span class="pill">📍 {{format_message_variable::stat_data.当前处境.位置}}</span>
+    </div>
+  </div>
+  <div class="grid">
+    <section class="panel"><h3>窗外天气</h3><div class="value">{{format_message_variable::stat_data.当前处境.天气}}</div></section>
+    <section class="panel"><h3>白铃的心情</h3><div class="value">{{format_message_variable::stat_data.白铃.状态.心情}}</div></section>
+    <section class="panel"><h3>精力</h3><div class="value">{{format_message_variable::stat_data.白铃.状态.精力}} / 100</div><div class="meter"><i style="width:{{format_message_variable::stat_data.白铃.状态.精力}}%"></i></div></section>
+    <section class="panel"><h3>信赖 · {{format_message_variable::stat_data.白铃.关系.关系阶段}}</h3><div class="value">{{format_message_variable::stat_data.白铃.关系.信赖度}} / 100</div><div class="meter"><i style="width:{{format_message_variable::stat_data.白铃.关系.信赖度}}%"></i></div></section>
+    <section class="panel"><h3>今日穿搭</h3><div class="value">{{format_message_variable::stat_data.白铃.场景连续性.穿着}}</div></section>
+    <section class="panel memories"><h3>共同回忆</h3><div class="value">{{format_message_variable::stat_data.白铃.共同回忆}}</div></section>
+  </div>
+  <div class="foot">当前在场：{{format_message_variable::stat_data.当前处境.在场人物}}</div>
+</div>
+```

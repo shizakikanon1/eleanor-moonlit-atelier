@@ -1,0 +1,296 @@
+{
+  "depth_defaults": {
+    "role": "system",
+    "depth": 0
+  },
+  "mvu": true,
+  "creator": "",
+  "version": "0.1",
+  "first_messages": [
+    "开场白/0.txt"
+  ],
+  "form": "charactercard",
+  "strategyThresholds": {
+    "扮演准则": "Infinity",
+    "角色": {
+      "basic": {
+        "threshold": 5,
+        "required": true
+      },
+      "personality": {
+        "threshold": 2,
+        "required": true
+      }
+    },
+    "MVU": {
+      "update_rules": {
+        "threshold": "Infinity",
+        "required": false
+      },
+      "output_format": {
+        "threshold": "Infinity",
+        "required": false
+      },
+      "initvar": {
+        "threshold": null,
+        "required": false
+      },
+      "variable_list": {
+        "threshold": "Infinity",
+        "required": false
+      }
+    },
+    "世界观": "Infinity"
+  },
+  "entryManifest": {
+    "扮演准则": {
+      "扮演与边界": {
+        "path": "世界书/扮演准则/扮演与边界.yaml",
+        "abstract": "叙事节奏、用户自主权、关系边界",
+        "keywords": [],
+        "enabled": true,
+        "strategy": {
+          "type": "constant"
+        },
+        "position": {
+          "order": 20,
+          "type": "before_character_definition"
+        }
+      }
+    },
+    "角色": {
+      "白铃_基础信息": {
+        "abstract": "22岁咖啡馆主理人，银白长发、翠绿眼睛，温柔体贴，擅长咖啡",
+        "contents": [
+          {
+            "content": "---\n<character_basic character=\"白铃\">"
+          },
+          {
+            "file": "世界书/角色/白铃/基础信息.yaml"
+          },
+          {
+            "content": "</character_basic>"
+          }
+        ],
+        "enabled": true,
+        "strategy": {
+          "keys": [
+            "白铃",
+            "花见咖啡馆",
+            "樱町"
+          ],
+          "type": "selective"
+        },
+        "part": "basic",
+        "position": {
+          "order": 30,
+          "type": "after_character_definition"
+        },
+        "scope": "specific",
+        "keywords": [
+          "白铃",
+          "花见咖啡馆主理人",
+          "银白发咖啡师"
+        ]
+      },
+      "白铃_性格调色盘": {
+        "abstract": "温柔认真、服务周到但不迎合；熟悉后轻快幽默，慢热重承诺",
+        "contents": [
+          {
+            "content": "---\n<character_personality character=\"白铃\">"
+          },
+          {
+            "file": "世界书/角色/白铃/性格调色盘.yaml"
+          },
+          {
+            "content": "</character_personality>"
+          }
+        ],
+        "enabled": true,
+        "strategy": {
+          "keys": [
+            "白铃",
+            "花见咖啡馆"
+          ],
+          "type": "selective"
+        },
+        "part": "personality",
+        "position": {
+          "order": 31,
+          "type": "after_character_definition"
+        },
+        "scope": "specific",
+        "keywords": [
+          "白铃",
+          "咖啡师",
+          "女仆"
+        ]
+      }
+    },
+    "MVU": {
+      "[mvu_update]变量输出格式": {
+        "strategy": {
+          "type": "constant"
+        },
+        "path": "世界书/变量/[mvu_update]变量输出格式.txt",
+        "abstract": "MVU JSON Patch 输出格式",
+        "keywords": [],
+        "part": "output_format",
+        "enabled": true,
+        "position": {
+          "type": "at_depth",
+          "role": "system",
+          "depth": 0,
+          "order": 90
+        }
+      },
+      "变量列表": {
+        "strategy": {
+          "type": "constant"
+        },
+        "path": "世界书/变量/变量列表.txt",
+        "abstract": "初始变量及状态栏字段",
+        "keywords": [],
+        "part": "variable_list",
+        "enabled": true,
+        "position": {
+          "type": "at_depth",
+          "role": "system",
+          "depth": 0,
+          "order": 70
+        }
+      },
+      "[mvu_update]变量更新规则": {
+        "strategy": {
+          "type": "constant"
+        },
+        "path": "世界书/变量/[mvu_update]变量更新规则.yaml",
+        "abstract": "当前处境、关系、精力与回忆更新规则",
+        "keywords": [],
+        "part": "update_rules",
+        "enabled": true,
+        "position": {
+          "type": "at_depth",
+          "role": "system",
+          "depth": 0,
+          "order": 91
+        }
+      },
+      "[InitVar]请勿打开": {
+        "path": "世界书/变量/initvar.yaml",
+        "abstract": "初始状态",
+        "keywords": [],
+        "part": "initvar",
+        "enabled": false,
+        "position": {
+          "type": "at_depth",
+          "role": "system",
+          "depth": 0,
+          "order": 80
+        }
+      }
+    },
+    "世界观": {
+      "世界设定": {
+        "path": "世界书/世界观/世界设定.yaml",
+        "abstract": "花见咖啡馆与樱町街区，温暖现代日常背景",
+        "keywords": [
+          "花见咖啡馆",
+          "樱町",
+          "街角咖啡馆"
+        ],
+        "enabled": true,
+        "strategy": {
+          "type": "constant"
+        },
+        "position": {
+          "order": 10,
+          "type": "before_character_definition"
+        }
+      }
+    }
+  },
+  "extensions": {
+    "tavern_helper": {
+      "scripts": {
+        "MVU": {
+          "id": "3715cf3a-3fa5-4cf4-8b77-8bc2d9121bba",
+          "enabled": true,
+          "info": "MVU loader",
+          "script_file": "脚本/MVU.txt",
+          "button": {
+            "buttons": [],
+            "enabled": false
+          },
+          "type": "script"
+        }
+      }
+    }
+  },
+  "partOrder": {
+    "角色": [
+      "basic",
+      "personality"
+    ],
+    "MVU": [
+      "variable_list",
+      "update_rules",
+      "output_format",
+      "initvar"
+    ]
+  },
+  "description": "22岁的咖啡馆主理人白铃，银白长发、翠绿眼睛，温柔认真，擅长手作咖啡。",
+  "creator_notes": "项目设定由单张插画补全推断；姓名与背景可调整。",
+  "create_date": "2026-10-17T06:50:39.2464430Z",
+  "worldbookName": "白铃",
+  "avatar": "白铃.png",
+  "regex_scripts": {
+    "状态栏界面": {
+      "substituteRegex": 0,
+      "id": "81d427d8-d55d-411f-b4fa-ea2fe815f783",
+      "promptOnly": false,
+      "runOnEdit": true,
+      "replace_file": "正则/状态栏界面.html",
+      "markdownOnly": true,
+      "disabled": false,
+      "trimStrings": [],
+      "findRegex": "<StatusPlaceHolderImpl/>",
+      "placement": [
+        2
+      ]
+    },
+    "对AI隐藏状态栏": {
+      "id": "133c4b32-8278-4549-8449-6e55114a2e85",
+      "promptOnly": true,
+      "trimStrings": [],
+      "substituteRegex": 0,
+      "markdownOnly": false,
+      "disabled": false,
+      "replaceString": "",
+      "runOnEdit": true,
+      "findRegex": "<StatusPlaceHolderImpl/>",
+      "placement": [
+        2
+      ]
+    }
+  },
+  "typeLists": {
+    "before_char": [
+      "世界观",
+      "扮演准则"
+    ],
+    "depth": [
+      "MVU"
+    ],
+    "after_char": [
+      "角色"
+    ]
+  },
+  "zod": {
+    "scriptId": "02d282af-8942-489f-b744-ff16a018de3c",
+    "importUrl": "https://testingcf.jsdelivr.net/gh/StageDog/tavern_resource/dist/util/mvu_zod.js",
+    "scriptName": "Zod",
+    "schemaPath": "schema.ts"
+  },
+  "projectName": "白铃"
+}

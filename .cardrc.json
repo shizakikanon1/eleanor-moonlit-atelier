@@ -1,0 +1,68 @@
+{
+  "default_type_lists": {
+    "before_char": [
+      "世界观",
+      "扮演准则"
+    ],
+    "after_char": [
+      "角色"
+    ],
+    "depth": [
+      "MVU"
+    ]
+  },
+  "depth_defaults": {
+    "depth": 0,
+    "role": "system"
+  },
+  "default_strategy_thresholds": {
+    "世界观": "Infinity",
+    "扮演准则": "Infinity",
+    "MVU": {
+      "initvar": {
+        "required": false,
+        "threshold": null
+      },
+      "update_rules": {
+        "required": false,
+        "threshold": "Infinity"
+      },
+      "output_format": {
+        "required": false,
+        "threshold": "Infinity"
+      },
+      "variable_list": {
+        "required": false,
+        "threshold": "Infinity"
+      }
+    },
+    "角色": {
+      "personality": {
+        "required": true,
+        "threshold": 2
+      },
+      "basic": {
+        "required": true,
+        "threshold": 5
+      }
+    }
+  },
+  "projects": {
+    "白铃": {
+      "state_file": "cards/白铃/tavern-cards-state.json",
+      "artifact": "cards/白铃/白铃-card.png"
+    }
+  },
+  "default_part_order": {
+    "MVU": [
+      "variable_list",
+      "update_rules",
+      "output_format",
+      "initvar"
+    ],
+    "角色": [
+      "basic",
+      "personality"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+当前处境:
+  时间:
+    日期: {{format_message_variable::stat_data.当前处境.时间.日期}}
+    时刻: {{format_message_variable::stat_data.当前处境.时间.时刻}}
+  天气: {{format_message_variable::stat_data.当前处境.天气}}
+  位置: {{format_message_variable::stat_data.当前处境.位置}}
+  在场人物: {{format_message_variable::stat_data.当前处境.在场人物}}
+白铃:
+  场景连续性:
+    穿着: {{format_message_variable::stat_data.白铃.场景连续性.穿着}}
+  状态:
+    心情: {{format_message_variable::stat_data.白铃.状态.心情}}
+    精力: {{format_message_variable::stat_data.白铃.状态.精力}}
+  关系:
+    信赖度: {{format_message_variable::stat_data.白铃.关系.信赖度}}
+    关系阶段: {{format_message_variable::stat_data.白铃.关系.关系阶段}}
+  共同回忆: {{format_message_variable::stat_data.白铃.共同回忆}}

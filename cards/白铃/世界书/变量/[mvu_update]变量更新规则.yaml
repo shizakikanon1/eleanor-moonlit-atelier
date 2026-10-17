@@ -1,0 +1,42 @@
+当前处境:
+  时间:
+    日期:
+      type: string
+      check: [只在剧情明确跨日时更新]
+    时刻:
+      type: string
+      format: HH:mm
+      check: [按场景内明确经过的时间推进；不无故跳时]
+  天气:
+    type: string
+    check: [场景转换或天气变化时更新；同场景短时间内保持稳定]
+  位置:
+    type: string
+    check: [白铃或用户移动到新地点时更新]
+  在场人物:
+    type: array
+    check: [按实际进入和离开场景更新]
+白铃:
+  场景连续性:
+    穿着:
+      type: string
+      check: [仅在换装或衣物明显变化时更新]
+  状态:
+    心情:
+      type: string
+      check: [由本轮事件支持；微小情绪不必每轮改写]
+    精力:
+      type: number
+      range: 0~100
+      check: [休息增加、忙碌或熬夜减少；单轮变化通常不超过15]
+  关系:
+    信赖度:
+      type: number
+      range: 0~100
+      check: [只根据用户明确表现的尊重、守信和共同经历增减；每轮变化通常在-3至+5]
+    关系阶段:
+      type: string
+      check: [按信赖度与长期互动缓慢调整，不因一次善意直接确认为恋人]
+  共同回忆:
+    type: array
+    check: [仅记录有持续意义的共同事件；避免重复条目，新增时不重写已记录事实]
